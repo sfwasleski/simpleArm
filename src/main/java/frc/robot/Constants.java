@@ -29,4 +29,32 @@ public final class Constants {
     public static final double kPodiumPivotAngle = 45.0;
     public static final double kAmpPivotAngle = 90.0;
   }
+
+  /**
+   * An enumeration of known shot locations and data critical to executing the
+   * shot. TODO decide on shooter velocity units and tune angles.
+   */
+  public enum NextShot {
+    AMP(-90.0, 90.0, 90.0, 100.0),
+    SPEAKER_AMP(45.0, -45.0, 0.0, 1000.0),
+    SPEAKER_CENTER(0.0, 0.0, 0.0, 1000.0),
+    SPEAKER_PODIUM(-45.0, 45.0, 0.0, 1000.0),
+    PODIUM(-30.0, 30.0, 45.0, 2000.00);
+
+    public final double m_blueSideBotHeading;
+    public final double m_redSideBotHeading;
+    public final double m_armAngle;
+    public final double m_shooterVelocity;
+
+    private NextShot(
+        final double blueSideBotHeading,
+        final double redSideBotHeading,
+        final double armAngle,
+        final double shooterVelocity) {
+      m_blueSideBotHeading = blueSideBotHeading;
+      m_redSideBotHeading = redSideBotHeading;
+      m_armAngle = armAngle;
+      m_shooterVelocity = shooterVelocity;
+    }
+  }
 }
